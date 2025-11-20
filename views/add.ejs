@@ -1,0 +1,175 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="form-container">
+        <h2 class="form-heading text-center">Personal Information</h2>
+        <p class="text-center text-muted mb-4">Please enter your details accurately for our records</p>
+        
+        <form class="needs-validation" action="/sucessfull" novalidate>
+          <!-- Personal Information -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label for="firstName" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="firstName" required>
+              <div class="invalid-feedback">
+                Please enter your first name.
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="lastName" required>
+              <div class="invalid-feedback">
+                Please enter your last name.
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <label for="username" class="form-label">Username</label>
+              <div class="input-group">
+                <span class="input-group-text">@</span>
+                <input type="text" class="form-control" id="username" placeholder="Username" required>
+                <div class="invalid-feedback">
+                  Username is required.
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+              <div class="invalid-feedback">
+                Please enter a valid email address.
+              </div>
+            </div>
+          </div>
+          
+          <div class="section-divider"></div>
+          
+          <!-- Address Information -->
+          <h4 class="mb-3">Contact Information</h4>
+          <div class="row g-3 mb-4">
+            <div class="col-12">
+              <label for="address" class="form-label">Address Line 1</label>
+              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+              <div class="invalid-feedback">
+                Please enter your address.
+              </div>
+            </div>
+            
+            <div class="col-12">
+              <label for="address2" class="form-label">Address Line 2 <span class="text-body-secondary">(Optional)</span></label>
+              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+            </div>
+            
+            <div class="col-md-5">
+              <label for="country" class="form-label">Country</label>
+              <select class="form-select" id="country" required>
+                <option value="">Choose...</option>
+                <option value="IN" selected>India</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a country.
+              </div>
+            </div>
+            
+            <div class="col-md-4">
+              <label for="state" class="form-label">State</label>
+              <select class="form-select" id="state" required>
+                <option value="">Choose...</option>
+                <option>Andhra Pradesh</option>
+                <option>Arunachal Pradesh</option>
+                <option>Assam</option>
+                <option>Bihar</option>
+                <option>Chhattisgarh</option>
+                <option>Goa</option>
+                <option>Gujarat</option>
+                <option>Haryana</option>
+                <option>Himachal Pradesh</option>
+                <option>Jharkhand</option>
+                <option>Karnataka</option>
+                <option>Kerala</option>
+                <option>Madhya Pradesh</option>
+                <option>Maharashtra</option>
+                <option>Manipur</option>
+                <option>Meghalaya</option>
+                <option>Mizoram</option>
+                <option>Nagaland</option>
+                <option>Odisha</option>
+                <option>Punjab</option>
+                <option>Rajasthan</option>
+                <option>Sikkim</option>
+                <option>Tamil Nadu</option>
+                <option>Telangana</option>
+                <option>Tripura</option>
+                <option>Uttar Pradesh</option>
+                <option>Uttarakhand</option>
+                <option>West Bengal</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a state.
+              </div>
+            </div>
+            
+            <div class="col-md-3">
+              <label for="zip" class="form-label">PIN Code</label>
+              <input type="text" class="form-control" id="zip" placeholder="" required>
+              <div class="invalid-feedback">
+                PIN code is required.
+              </div>
+            </div>
+          </div>
+          
+          <div class="section-divider"></div>
+          
+          <!-- Resume Upload -->
+          <div class="mb-4">
+            <h4 class="mb-3">Document Upload</h4>
+            <div class="file-upload">
+              <label for="resume" class="d-block mb-3">
+                <i class="fas fa-file-upload fa-2x mb-2"></i>
+                <h5>Upload Resume</h5>
+                <p class="text-muted small">Accepted formats: PDF, DOC, DOCX (Max 5MB)</p>
+              </label>
+              <input type="file" class="form-control" id="resume" accept=".pdf, .doc, .docx">
+            </div>
+          </div>
+          
+          <!-- Submit Button -->
+          <div class="d-grid gap-2 mt-4">
+            <button class="btn btn-primary btn-lg" type="submit">
+              <i class="fas fa-paper-plane me-2"></i>Submit Details
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Form validation script
+  (() => {
+    'use strict'
+    
+    // Fetch all forms that need validation
+    const forms = document.querySelectorAll('.needs-validation')
+    
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+        
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
+</script>
+
+<%- include('partials/footer') %>
