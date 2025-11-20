@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 // MongoDB connection URL
-const mongoURL= 'mongodb+srv://admin-aryan:P36l69Y9Njq0ekAc@cluster0.ca3e4px.mongodb.net/placementAss';
+const mongoURL= 'MongoDB URL';
 
 // Connect to MongoDB
 mongoose.connect(mongoURL);
